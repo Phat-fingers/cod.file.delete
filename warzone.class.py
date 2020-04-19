@@ -24,6 +24,7 @@ class Warzone:
     def menu(self):
         print('Press 1 to only delete the ppsod.dat file.')
         print('Press 2 to delete all the files.')
+        print('Press 3 to quit.')
 
     def info(self):
         print('Scan & Repair the game.\n'
@@ -91,28 +92,32 @@ class Warzone:
 def main():
     w = Warzone()
     w.menu()
-    answer = input()
-    if answer == '1':
-        w.close_battle_net()
-        sleep(0.5)
-        w.delete_dat_file()
-        sleep(0.5)
-        w.start_battle_net()
-        print('Now scan and repair the game before you start the game.')
-    else:
-        w.close_battle_net()
-        sleep(1)
-        w.delete_dat_file()
-        sleep(1)
-        w.del_main_content()
-        sleep(1)
-        w.del_blizzard_folder()
-        sleep(1)
-        w.del_nv_cache()
-        sleep(1)
-        w.start_battle_net()
-        sleep(0.5)
-        w.info()
+
+    while True:
+        answer = input()
+        if answer == '1':
+            w.close_battle_net()
+            sleep(0.5)
+            w.delete_dat_file()
+            sleep(0.5)
+            w.start_battle_net()
+            print('Now scan and repair the game before you start playing.')
+        elif answer == '2':
+            w.close_battle_net()
+            sleep(1)
+            w.delete_dat_file()
+            sleep(1)
+            w.del_main_content()
+            sleep(1)
+            w.del_blizzard_folder()
+            sleep(1)
+            w.del_nv_cache()
+            sleep(1)
+            w.start_battle_net()
+            sleep(0.5)
+            w.info()
+        else:
+            break
 
 if __name__ == '__main__':
     main()
