@@ -77,7 +77,10 @@ class Warzone:
             print('No files was found')
         else:
             for file in os.listdir(self.nv_cache):
-                os.remove(file)
+                try:
+                    os.remove(file)
+                except:
+                    print('could not remove all files')
             print('All files removed')
 
 
